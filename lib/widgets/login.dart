@@ -1,3 +1,5 @@
+import 'package:app/util/const.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
@@ -9,6 +11,7 @@ class InitApp extends StatefulWidget {
 class _InitAppState extends State<InitApp> {
   var email = new TextEditingController();
   var password = new TextEditingController();
+  bool _showPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class _InitAppState extends State<InitApp> {
       home: Scaffold(
         body: bodyScaffold(),
         floatingActionButton: FloatingActionButton(
-          tooltip: "Git Hub",
+          tooltip: "Help",
           elevation: 100,
           backgroundColor: Colors.black,
           onPressed: () {},
@@ -43,7 +46,7 @@ class _InitAppState extends State<InitApp> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image(
-          image: AssetImage('lib/images/hbo-max.png'),
+          image: AssetImage(Constantes.HBO),
           fit: BoxFit.fill,),
         SizedBox(
           height: 100,
@@ -51,12 +54,14 @@ class _InitAppState extends State<InitApp> {
         Container(
           width: 300,
           child: TextFormField(
+            textAlign: TextAlign.center,
             keyboardType: TextInputType.emailAddress,
-            style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20, fontFamily: "Poppins"),
+            style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20, fontFamily: "Poppins", color: Colors.white),
             controller: email,
             decoration: InputDecoration(
+              prefixIcon: Icon(Feather.user, size: 20,),
               fillColor: Colors.white,
-              labelText: 'Enter your Username',
+              labelText: Constantes.LOGIN,
               labelStyle: TextStyle(color: Colors.white),
               errorStyle: TextStyle(color: Colors.red),
               counterStyle: TextStyle(backgroundColor: Colors.white),
@@ -73,12 +78,21 @@ class _InitAppState extends State<InitApp> {
         Container(
           width: 300,
           child: TextFormField(
+            obscureText: this._showPassword,
+            textAlign: TextAlign.center,
             keyboardType: TextInputType.visiblePassword,
-            style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20, fontFamily: "Poppins"),
+            style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20, fontFamily: "Poppins", color: Colors.white),
             controller: password,
             decoration: InputDecoration(
+              prefixIcon: Icon(Icons.security, size: 20,),
+              suffixIcon: IconButton(
+                onPressed: (){setState(() => this._showPassword = !this._showPassword);},
+                  icon: Icon(
+                    Icons.remove_red_eye,
+                    color: this._showPassword ? Colors.blue : Colors.grey,
+                  ),),
               fillColor: Colors.white,
-              labelText: 'Enter your Password',
+              labelText: Constantes.PASSWORD,
               errorStyle: TextStyle(color: Colors.red),
               labelStyle: TextStyle(color: Colors.white),
               border: OutlineInputBorder(
