@@ -9,18 +9,33 @@ part of 'sign-up-controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$SignUpController on SignUpBase, Store {
-  final _$globalStateAtom = Atom(name: 'SignUpBase.globalState');
+  final _$formStageAtom = Atom(name: 'SignUpBase.formStage');
 
   @override
-  GlobalKey<ScaffoldState> get globalState {
-    _$globalStateAtom.reportRead();
-    return super.globalState;
+  GlobalKey<FormState> get formStage {
+    _$formStageAtom.reportRead();
+    return super.formStage;
   }
 
   @override
-  set globalState(GlobalKey<ScaffoldState> value) {
-    _$globalStateAtom.reportWrite(value, super.globalState, () {
-      super.globalState = value;
+  set formStage(GlobalKey<FormState> value) {
+    _$formStageAtom.reportWrite(value, super.formStage, () {
+      super.formStage = value;
+    });
+  }
+
+  final _$globalAtom = Atom(name: 'SignUpBase.global');
+
+  @override
+  GlobalKey<ScaffoldState> get global {
+    _$globalAtom.reportRead();
+    return super.global;
+  }
+
+  @override
+  set global(GlobalKey<ScaffoldState> value) {
+    _$globalAtom.reportWrite(value, super.global, () {
+      super.global = value;
     });
   }
 
@@ -114,10 +129,24 @@ mixin _$SignUpController on SignUpBase, Store {
     });
   }
 
+  final _$SignUpBaseActionController = ActionController(name: 'SignUpBase');
+
+  @override
+  void signUpButton() {
+    final _$actionInfo = _$SignUpBaseActionController.startAction(
+        name: 'SignUpBase.signUpButton');
+    try {
+      return super.signUpButton();
+    } finally {
+      _$SignUpBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
-globalState: ${globalState},
+formStage: ${formStage},
+global: ${global},
 name: ${name},
 lastName: ${lastName},
 email: ${email},
