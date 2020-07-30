@@ -99,6 +99,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.1.0"
+  calendarro:
+    dependency: "direct main"
+    description:
+      name: calendarro
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   charcode:
     dependency: transitive
     description:
@@ -169,6 +176,55 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.6"
+  firebase:
+    dependency: transitive
+    description:
+      name: firebase
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.3.0"
+  firebase_auth:
+    dependency: "direct main"
+    description:
+      name: firebase_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.16.1"
+  firebase_auth_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_auth_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.8"
+  firebase_auth_web:
+    dependency: transitive
+    description:
+      name: firebase_auth_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.3+1"
+  firebase_core:
+    dependency: "direct main"
+    description:
+      name: firebase_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.5"
+  firebase_core_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_core_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
+  firebase_core_web:
+    dependency: transitive
+    description:
+      name: firebase_core_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1+2"
   fixnum:
     dependency: transitive
     description:
@@ -195,6 +251,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0+1"
+  flutter_modular:
+    dependency: "direct main"
+    description:
+      name: flutter_modular
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.3.1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -207,6 +270,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   glob:
     dependency: transitive
     description:
@@ -214,6 +282,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  google_sign_in:
+    dependency: "direct main"
+    description:
+      name: google_sign_in
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.5.1"
+  google_sign_in_platform_interface:
+    dependency: transitive
+    description:
+      name: google_sign_in_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
+  google_sign_in_web:
+    dependency: transitive
+    description:
+      name: google_sign_in_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.1+1"
   graphs:
     dependency: transitive
     description:
@@ -257,7 +346,7 @@ packages:
     source: hosted
     version: "2.1.4"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       url: "https://pub.dartlang.org"
@@ -382,6 +471,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   pool:
     dependency: transitive
     description:

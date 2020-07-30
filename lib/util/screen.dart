@@ -9,4 +9,12 @@ class Screen{
   static double height(BuildContext context){
     return MediaQuery.of(context).size.height;
   }
+
+  static Widget sizedBoxHeight(double height){
+    return SizedBox(height: height);
+  }
+
+  static Widget sizedBoxWidht(double widht){
+    return SizedBox(width: widht);
+  }
 }
