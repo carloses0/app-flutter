@@ -38,8 +38,7 @@ class FirebaseUtil{
     return await _db.once()
         .then((onValue) {
           Map people = onValue.value.entries.singleWhere((value) => value.value[EMAIL] == email).value;
-          return Response(statusCode: HttpStatus.ok, content:
-          Person(name: people[NAME], age: people[AGE], adress: people[ADRESS], email: people[EMAIL], lastName: people[LASTNAME]));
+          return Response(statusCode: HttpStatus.ok, content: Person.fromJson(people));
         })
         .catchError((onError) =>
         Response(statusCode: HttpStatus.internalServerError, content: onError.message));

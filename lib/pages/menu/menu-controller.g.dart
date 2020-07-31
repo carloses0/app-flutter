@@ -24,6 +24,21 @@ mixin _$MenuController on MenuControllerBase, Store {
     });
   }
 
+  final _$searchAtom = Atom(name: 'MenuControllerBase.search');
+
+  @override
+  TextEditingController get search {
+    _$searchAtom.reportRead();
+    return super.search;
+  }
+
+  @override
+  set search(TextEditingController value) {
+    _$searchAtom.reportWrite(value, super.search, () {
+      super.search = value;
+    });
+  }
+
   final _$indexAtom = Atom(name: 'MenuControllerBase.index');
 
   @override
@@ -39,10 +54,18 @@ mixin _$MenuController on MenuControllerBase, Store {
     });
   }
 
+  final _$listMovieAsyncAction = AsyncAction('MenuControllerBase.listMovie');
+
+  @override
+  Future<Response> listMovie() {
+    return _$listMovieAsyncAction.run(() => super.listMovie());
+  }
+
   @override
   String toString() {
     return '''
 globalState: ${globalState},
+search: ${search},
 index: ${index}
     ''';
   }

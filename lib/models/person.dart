@@ -26,7 +26,7 @@ class Person {
     return data;
   }
 
-  Person.fromJson(Map<String, dynamic> json) {
+  Person.fromJson(Map<dynamic, dynamic> json) {
     this.name = json[NAME];
     this.email = json[EMAIL];
     this.password = json[PASSWORD];
