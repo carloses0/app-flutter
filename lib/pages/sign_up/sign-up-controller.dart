@@ -1,4 +1,9 @@
-import 'package:app/util/const.dart';
+import 'dart:io';
+
+import 'package:app/auth/firebase-auth.dart';
+import 'package:app/models/person.dart';
+import 'package:app/util/connection/response.dart';
+import 'package:app/util/constantes/mensagem_util.dart';
 import 'package:app/widgets/snack-bar.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
@@ -26,9 +31,37 @@ abstract class SignUpBase with Store{
   var password = TextEditingController();
 
   @action
-  void signUpButton(){
+  void signUpButton() async {
       if(!formStage.currentState.validate()){
           return;
-       }
+      }
+      var person = Person(
+          name: name.value.text.trim().toUpperCase(),
+          lastName: lastName.value.text.toUpperCase().trim(),
+          email: email.value.text.trim().toLowerCase(),
+          adress: address.value.text.toUpperCase().trim(),
+          age: age.value.text);
+      Response future = await FirebaseUtil.createAuth(Person(password: password.value.text.trim(), email: email.value.text.trim()));
+      if(future.statusCode == HttpStatus.ok){
+            Response response = await FirebaseUtil.savePerson(person);
+            if(response.statusCode == HttpStatus.ok){
+              clearFields();
+              SnackBarUtil.showSnackBarSucess(global.currentContext, MensagemUtil.REGISTRATION_OK);
+              Navigator.pop(global.currentContext);
+            }else{
+              SnackBarUtil.showSnackBarError(global.currentContext, MensagemUtil.REGISTRATION_ERROR);
+            }
+      }else{
+        SnackBarUtil.showSnackBarError(global.currentContext, future.content);
+      }
+  }
+
+  void clearFields(){
+    age.clear();
+    address.clear();
+    name.clear();
+    lastName.clear();
+    email.clear();
+    password.clear();
   }
 }

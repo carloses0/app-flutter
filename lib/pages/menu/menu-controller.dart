@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'menu-controller.g.dart';
@@ -10,4 +9,6 @@ abstract class MenuControllerBase with Store {
   @observable
   var globalState = GlobalKey<ScaffoldState>();
 
+  @observable
+  var person;
 }

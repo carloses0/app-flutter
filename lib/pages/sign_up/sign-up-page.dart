@@ -1,6 +1,7 @@
 import 'package:app/pages/sign_up/sign-up-controller.dart';
-import 'package:app/util/const.dart';
-import 'package:app/util/date-util.dart';
+import 'package:app/util/constantes/imagens_util.dart';
+import 'package:app/util/constantes/mensagem_util.dart';
+import 'package:app/util/date_util.dart';
 import 'package:app/util/design/colors.dart';
 import 'package:app/util/screen.dart';
 import 'package:calendarro/calendarro.dart';
@@ -22,7 +23,6 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: controller.global,
       backgroundColor: ColorsUtil.background(),
       appBar: AppBar(
         backgroundColor: Colors.black12,
@@ -30,7 +30,7 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
           margin: EdgeInsets.only(right: 50),
           child: Padding(
               padding: const EdgeInsets.all(80),
-              child: Image(image: AssetImage(Constantes.HBO_IMG), fit: BoxFit.contain),
+              child: Image(image: AssetImage(ImagensUtil.HBO_IMG), fit: BoxFit.contain),
           ),
         ),
         iconTheme: IconThemeData(color: Colors.white, size: 30),
@@ -43,12 +43,13 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
       body: Form(
         key: controller.formStage,
         child: ListView(
+          key: controller.global,
           padding: EdgeInsets.all(30),
           children: [
             Center(
               child: Container(
                 child: Text(
-                  Constantes.WELCOME,
+                  MensagemUtil.WELCOME,
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
@@ -57,18 +58,18 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
             CircleAvatar(
               backgroundColor: Colors.black,
               radius: 50,
-              child: Padding(padding: EdgeInsets.all(30), child: Image(image: AssetImage(Constantes.NEW_USER_IMG),)),
+              child: Padding(padding: EdgeInsets.all(30), child: Image(image: AssetImage(ImagensUtil.NEW_USER_IMG),)),
             ),
             Screen.sizedBoxHeight(30),
             Container(
               width: Screen.width(context) / 1.5,
               height: Screen.height(context) / 10,
-              child: textFormField(Constantes.NAME, controller.name, true),
+              child: textFormField(MensagemUtil.NAME, controller.name, true),
             ),
             Container(
               width: Screen.width(context) / 1.5,
               height: Screen.height(context) / 10,
-              child: textFormField(Constantes.LAST_NAME, controller.lastName, true),
+              child: textFormField(MensagemUtil.LAST_NAME, controller.lastName, true),
             ),
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 500),
@@ -79,7 +80,7 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
                   displayMode: DisplayMode.MONTHS,
                   startDate: DateTime(1950),
                   endDate: DateTime.now(),
-                  onTap: (data) => controller.age.text = DateUtil.formaterDate(Constantes.DATE_PT_BR, data),
+                  onTap: (data) => controller.age.text = DateUtil.formaterDate(MensagemUtil.DATE_PT_BR, data),
                 ),
               ) : Screen.sizedBoxHeight(5),
             ),
@@ -89,11 +90,11 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
                 Container(
                   width: Screen.width(context) / 2,
                   height: Screen.height(context) / 10,
-                  child: textFormField(Constantes.AGE, controller.age, false),
+                  child: textFormField(MensagemUtil.AGE, controller.age, false),
                 ),
                 IconButton(
                     padding: EdgeInsets.only(bottom: 20),
-                    tooltip: Constantes.OPEN_CALENDAR,
+                    tooltip: MensagemUtil.OPEN_CALENDAR,
                     color: Colors.white,
                     onPressed: () {setState(() {_openCalendar = !_openCalendar;});},
                     icon: Icon(AntDesign.calendar),
@@ -103,7 +104,7 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
             Container(
               width: Screen.width(context) / 1.5,
               height: Screen.height(context) / 7,
-              child: textFormField(Constantes.ADDRESS, controller.address, true),
+              child: textFormField(MensagemUtil.ADDRESS, controller.address, true),
             ),
             Container(
               width: Screen.width(context) / 1.5,
@@ -112,13 +113,14 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
                 keyboardType: TextInputType.emailAddress,
                 controller: controller.email,
                 validator: MultiValidator([
-                  RequiredValidator(errorText: Constantes.REQUIRED),
-                  EmailValidator(errorText: Constantes.EMAIL_INVALID)
+                  RequiredValidator(errorText: MensagemUtil.REQUIRED),
+                  EmailValidator(errorText: MensagemUtil.EMAIL_INVALID)
                 ]),
                 maxLines: 1,
                 decoration: InputDecoration(
                   icon: Icon(Zocial.email),
-                  hintText: Constantes.EMAIL,
+                  hintText: MensagemUtil.EMAIL,
+                  errorStyle: TextStyle(color: Colors.orange, fontSize: 15),
                   hintStyle: TextStyle(color: Colors.white, fontSize: 15),
                   border: OutlineInputBorder(),
                   contentPadding: EdgeInsets.all(10),
@@ -133,14 +135,13 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
               height: Screen.height(context) / 7,
               child: TextFormField(
                 controller: controller.password,
-                keyboardType: TextInputType.number,
-                validator: RequiredValidator(errorText: Constantes.REQUIRED),
+                validator: RequiredValidator(errorText: MensagemUtil.REQUIRED),
                 maxLines: 1,
                 maxLength: 8,
                 obscureText: _showPassword,
                 decoration: InputDecoration(
                   icon: Icon(MaterialCommunityIcons.onepassword),
-                  hintText: Constantes.PASSWORD,
+                  hintText: MensagemUtil.PASSWORD,
                   errorStyle: TextStyle(color: Colors.orange),
                   hintStyle: TextStyle(color: Colors.white, fontSize: 15),
                   suffixIcon: IconButton (
@@ -167,7 +168,7 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
                 elevation: 10,
                 splashColor: Colors.purple,
                 textColor: Colors.black,
-                child: Text(Constantes.SUBMIT, style: TextStyle(color: Colors.white),),
+                child: Text(MensagemUtil.SUBMIT, style: TextStyle(color: Colors.white),),
                 color: Colors.black12,
                 onPressed: () => controller.signUpButton(),
               ),
@@ -183,7 +184,7 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
       controller: textEditingController,
       maxLines: 1,
       enabled: enabled,
-      validator: RequiredValidator(errorText: Constantes.REQUIRED),
+      validator: RequiredValidator(errorText: MensagemUtil.REQUIRED),
       decoration: InputDecoration(
         hintText: text,
         errorStyle: TextStyle(color: Colors.orange),
@@ -196,5 +197,16 @@ class _SignUpState extends ModularState<SignUp, SignUpController> {
       textAlign: TextAlign.center,
       style: TextStyle(color: Colors.white, fontSize: 20),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.email.dispose();
+    controller.password.dispose();
+    controller.name.dispose();
+    controller.age.dispose();
+    controller.address.dispose();
+    controller.lastName.dispose();
   }
 }

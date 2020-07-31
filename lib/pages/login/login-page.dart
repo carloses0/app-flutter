@@ -1,7 +1,8 @@
 import 'package:app/pages/login/login-controller.dart';
-import 'package:app/util/const.dart';
+import 'package:app/util/constantes/imagens_util.dart';
+import 'package:app/util/constantes/mensagem_util.dart';
+import 'package:app/util/constantes/routes.dart';
 import 'package:app/util/design/colors.dart';
-import 'package:app/util/routes.dart';
 import 'package:app/util/screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,12 +23,13 @@ class _LoginState extends ModularState<Login, LoginController> {
         color: ColorsUtil.background(),
         child: Center(
           child: Form(
+            key: controller.form,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                     width: Screen.width(context) / 1.25,
-                    child: Image(image: AssetImage(Constantes.HBO_MAX_IMG), fit: BoxFit.fill
+                    child: Image(image: AssetImage(ImagensUtil.HBO_MAX_IMG), fit: BoxFit.fill
                     )),
                 SizedBox(height: 100),
                 Container(
@@ -35,8 +37,8 @@ class _LoginState extends ModularState<Login, LoginController> {
                   child: TextFormField(
                     maxLines: 1,
                     validator:  MultiValidator([
-                      RequiredValidator(errorText: Constantes.REQUIRED),
-                      EmailValidator(errorText: Constantes.EMAIL_INVALID)
+                      RequiredValidator(errorText: MensagemUtil.REQUIRED),
+                      EmailValidator(errorText: MensagemUtil.EMAIL_INVALID)
                     ]),
                     textAlign: TextAlign.center,
                     keyboardType: TextInputType.emailAddress,
@@ -45,7 +47,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                     decoration: InputDecoration(
                       prefixIcon: Icon(Feather.user, size: 20,),
                       fillColor: Colors.white,
-                      labelText: Constantes.LOGIN,
+                      labelText: MensagemUtil.LOGIN,
                       labelStyle: TextStyle(color: Colors.white),
                       errorStyle: TextStyle(color: Colors.orange),
                       counterStyle: TextStyle(backgroundColor: Colors.white),
@@ -64,8 +66,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                     maxLength: 10,
                     obscureText: controller.showPassword,
                     textAlign: TextAlign.center,
-                    validator: RequiredValidator(errorText: Constantes.REQUIRED),
-                    keyboardType: TextInputType.number,
+                    validator: RequiredValidator(errorText: MensagemUtil.REQUIRED),
                     style: TextStyle(fontStyle: FontStyle.normal, fontSize: 20, color: Colors.white),
                     controller: controller.password,
                     decoration: InputDecoration(
@@ -80,7 +81,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                           color: controller.showPassword ? Colors.blue : Colors.grey,
                         ),),
                       fillColor: Colors.white,
-                      labelText: Constantes.PASSWORD,
+                      labelText: MensagemUtil.PASSWORD,
                       errorStyle: TextStyle(color: Colors.orange),
                       labelStyle: TextStyle(color: Colors.white),
                       border: OutlineInputBorder(
@@ -103,7 +104,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                     width: Screen.width(context) / 1.25,
                     height: 50,
                     child: Center(
-                        child: Text(Constantes.LOGIN, style: TextStyle(color: Colors.white, fontSize: 20),),
+                        child: Text(MensagemUtil.LOGIN, style: TextStyle(color: Colors.white, fontSize: 20),),
                     ),
                   ),
                 ),
@@ -126,12 +127,19 @@ class _LoginState extends ModularState<Login, LoginController> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: Constantes.SIGN_UP,
+        tooltip: MensagemUtil.SIGN_UP,
         elevation: 100,
         backgroundColor: Colors.black,
-        onPressed: () => Modular.to.pushNamed(Routes.SIGN_UP),
+        onPressed: () => Modular.to.pushNamed(RoutesUtil.SIGN_UP),
         child: Icon(Octicons.sign_in),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.password.dispose();
+    controller.username.dispose();
   }
 }

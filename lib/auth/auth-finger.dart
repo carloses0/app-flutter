@@ -1,4 +1,4 @@
-import 'package:app/util/const.dart';
+import 'package:app/util/constantes/mensagem_util.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
 
@@ -14,7 +14,7 @@ class AuthFinger {
     bool authenticated = false;
     try {
       authenticated = await _local.authenticateWithBiometrics(
-          localizedReason: Constantes.FINGERPRINT,
+          localizedReason: MensagemUtil.FINGERPRINT,
           useErrorDialogs: true,
           stickyAuth: true);
     } on PlatformException catch (e) {

@@ -1,7 +1,4 @@
-class Constantes{
-  static const String _PATH = 'lib/images';
-
-  // Strings
+class MensagemUtil{
   static const String LOGIN = 'Login';
   static const String NAME = 'Name';
   static const String LAST_NAME = 'Last Name';
@@ -21,12 +18,9 @@ class Constantes{
   static const String REQUIRED = 'Field is required';
   static const String EMAIL_INVALID = 'Email Invalid';
   static const String WELCOME = 'Welcome!';
-
-  // Images
-  static const String HBO_MAX_IMG = '$_PATH/hbo-max.png';
-  static const String HBO_IMG = '$_PATH/hbo.png';
-  static const String NEW_USER_IMG = '$_PATH/user.png';
+  static const String REGISTRATION_OK = 'Registration completed!';
+  static const String REGISTRATION_ERROR = 'Error in Registration.\nContact own Support';
 
   // Date
-  static const String DATE_PT_BR = 'EEE, d/M/y';
+  static const String DATE_PT_BR = 'd/M/y';
 }

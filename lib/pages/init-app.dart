@@ -1,5 +1,4 @@
-import 'package:app/util/const.dart';
-import 'package:app/util/routes.dart';
+import 'package:app/util/constantes/mensagem_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -14,7 +13,7 @@ class InitApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      title: Constantes.HBO_MAX,
+      title: MensagemUtil.HBO_MAX,
       initialRoute: Modular.initialRoute,
       navigatorKey: Modular.navigatorKey,
       onGenerateRoute: Modular.generateRoute,

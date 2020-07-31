@@ -1,66 +1,37 @@
-class Person{
-  String _name;
-  String _lastName;
-  String _age;
-  String _adress;
-  String _email;
-  String _password;
+const String NAME = 'name';
+const String EMAIL = 'email';
+const String PASSWORD = 'password';
+const String ADRESS = 'adress';
+const String AGE = 'age';
+const String LASTNAME = 'lastName';
 
-  Person(this._name, this._lastName, this._email, this._password, this._adress, this._age);
+class Person {
+  String name;
+  String lastName;
+  String age;
+  String adress;
+  String email;
+  String password;
+
+  Person({this.name, this.lastName, this.age, this.adress, this.email, this.password});
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this._name;
-    data['email'] = this._email;
-    data['lastName'] = this._lastName;
-    data['password'] = this._password;
-    data['adress'] = this._adress;
-    data['age'] = this._age;
+    data[NAME] = this.name;
+    data[EMAIL] = this.email;
+    data[LASTNAME] = this.lastName;
+    data[PASSWORD] = this.password;
+    data[ADRESS] = this.adress;
+    data[AGE] = this.age;
     return data;
   }
 
   Person.fromJson(Map<String, dynamic> json) {
-    this._name = json['name'];
-    this._email = json['email'];
-    this._password = json['password'];
-    this._lastName = json['lastName'];
-    this._adress = json['adress'];
-    this._age = json['age'];
-  }
-
-  String get password => _password;
-
-  set password(String value) {
-    _password = value;
-  }
-
-  String get email => _email;
-
-  set email(String value) {
-    _email = value;
-  }
-
-  String get name => _name;
-
-  set name(String value) {
-    _name = value;
-  }
-
-  String get adress => _adress;
-
-  set adress(String value) {
-    _adress = value;
-  }
-
-  String get age => _age;
-
-  set age(String value) {
-    _age = value;
-  }
-
-  String get lastName => _lastName;
-
-  set lastName(String value) {
-    _lastName = value;
+    this.name = json[NAME];
+    this.email = json[EMAIL];
+    this.password = json[PASSWORD];
+    this.lastName = json[LASTNAME];
+    this.adress = json[ADRESS];
+    this.age = json[AGE];
   }
 }
