@@ -44,7 +44,7 @@ abstract class LoginControllerBase with Store{
   }
 
   @action
-  void login() async {
+  login() async {
     if(!form.currentState.validate()){
       SnackBarUtil.showSnackBarError(global.currentContext, MensagemUtil.USER_PASSWORD_WRONG);
       return;

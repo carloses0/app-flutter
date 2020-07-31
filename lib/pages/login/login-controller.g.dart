@@ -39,6 +39,21 @@ mixin _$LoginController on LoginControllerBase, Store {
     });
   }
 
+  final _$formAtom = Atom(name: 'LoginControllerBase.form');
+
+  @override
+  GlobalKey<FormState> get form {
+    _$formAtom.reportRead();
+    return super.form;
+  }
+
+  @override
+  set form(GlobalKey<FormState> value) {
+    _$formAtom.reportWrite(value, super.form, () {
+      super.form = value;
+    });
+  }
+
   final _$globalAtom = Atom(name: 'LoginControllerBase.global');
 
   @override
@@ -99,6 +114,13 @@ mixin _$LoginController on LoginControllerBase, Store {
     });
   }
 
+  final _$loginAsyncAction = AsyncAction('LoginControllerBase.login');
+
+  @override
+  Future login() {
+    return _$loginAsyncAction.run(() => super.login());
+  }
+
   final _$authFingerAsyncAction = AsyncAction('LoginControllerBase.authFinger');
 
   @override
@@ -121,20 +143,10 @@ mixin _$LoginController on LoginControllerBase, Store {
   }
 
   @override
-  void login() {
-    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
-        name: 'LoginControllerBase.login');
-    try {
-      return super.login();
-    } finally {
-      _$LoginControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 biometrics: ${biometrics},
+form: ${form},
 global: ${global},
 showPassword: ${showPassword},
 username: ${username},

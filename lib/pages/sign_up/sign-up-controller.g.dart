@@ -129,17 +129,11 @@ mixin _$SignUpController on SignUpBase, Store {
     });
   }
 
-  final _$SignUpBaseActionController = ActionController(name: 'SignUpBase');
+  final _$signUpButtonAsyncAction = AsyncAction('SignUpBase.signUpButton');
 
   @override
-  void signUpButton() {
-    final _$actionInfo = _$SignUpBaseActionController.startAction(
-        name: 'SignUpBase.signUpButton');
-    try {
-      return super.signUpButton();
-    } finally {
-      _$SignUpBaseActionController.endAction(_$actionInfo);
-    }
+  Future signUpButton() {
+    return _$signUpButtonAsyncAction.run(() => super.signUpButton());
   }
 
   @override

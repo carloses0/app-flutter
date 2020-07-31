@@ -31,7 +31,7 @@ abstract class SignUpBase with Store{
   var password = TextEditingController();
 
   @action
-  void signUpButton() async {
+  signUpButton() async {
       if(!formStage.currentState.validate()){
           return;
       }

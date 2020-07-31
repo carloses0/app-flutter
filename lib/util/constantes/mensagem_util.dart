@@ -18,6 +18,9 @@ class MensagemUtil{
   static const String REQUIRED = 'Field is required';
   static const String EMAIL_INVALID = 'Email Invalid';
   static const String WELCOME = 'Welcome!';
+  static const String SEARCH = 'Search';
+  static const String MOVIE = 'Movies';
+  static const String SERIE = 'Series';
   static const String REGISTRATION_OK = 'Registration completed!';
   static const String REGISTRATION_ERROR = 'Error in Registration.\nContact own Support';
 

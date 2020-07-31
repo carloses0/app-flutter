@@ -23,6 +23,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   intl: ^0.16.1
   calendarro: ^1.2.0
+  curved_navigation_bar: ^0.3.3
   form_field_validator: ^1.0.1
 
 dev_dependencies:

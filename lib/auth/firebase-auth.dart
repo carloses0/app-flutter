@@ -42,6 +42,6 @@ class FirebaseUtil{
           Person(name: people[NAME], age: people[AGE], adress: people[ADRESS], email: people[EMAIL], lastName: people[LASTNAME]));
         })
         .catchError((onError) =>
-        Response(statusCode: HttpStatus.internalServerError, content: onError));
+        Response(statusCode: HttpStatus.internalServerError, content: onError.message));
   }
 }

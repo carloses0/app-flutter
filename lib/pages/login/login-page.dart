@@ -31,7 +31,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                     width: Screen.width(context) / 1.25,
                     child: Image(image: AssetImage(ImagensUtil.HBO_MAX_IMG), fit: BoxFit.fill
                     )),
-                SizedBox(height: 100),
+                Screen.sizedBoxHeight(40),
                 Container(
                   width: Screen.width(context) / 1.25,
                   child: TextFormField(
@@ -57,9 +57,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                Screen.sizedBoxHeight(40),
                 Container(
                   width: Screen.width(context) / 1.25,
                   child: TextFormField(
@@ -90,9 +88,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                Screen.sizedBoxHeight(20),
                 InkWell(
                   key: controller.global,
                   onTap: () => controller.login(),
@@ -108,9 +104,7 @@ class _LoginState extends ModularState<Login, LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 30,
-                ),
+                Screen.sizedBoxHeight(30),
                 Container(
                   height: Screen.height(context) / 10,
                   child: Center(

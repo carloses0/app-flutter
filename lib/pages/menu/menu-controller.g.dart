@@ -24,10 +24,26 @@ mixin _$MenuController on MenuControllerBase, Store {
     });
   }
 
+  final _$indexAtom = Atom(name: 'MenuControllerBase.index');
+
+  @override
+  int get index {
+    _$indexAtom.reportRead();
+    return super.index;
+  }
+
+  @override
+  set index(int value) {
+    _$indexAtom.reportWrite(value, super.index, () {
+      super.index = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-globalState: ${globalState}
+globalState: ${globalState},
+index: ${index}
     ''';
   }
 }

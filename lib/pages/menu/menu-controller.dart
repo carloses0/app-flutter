@@ -10,5 +10,6 @@ abstract class MenuControllerBase with Store {
   var globalState = GlobalKey<ScaffoldState>();
 
   @observable
-  var person;
+  int index = 0;
+
 }
