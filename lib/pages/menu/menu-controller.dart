@@ -1,6 +1,6 @@
-import 'package:app/pages/menu/menu-module.dart';
 import 'package:app/service/imdb-service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart';
 import 'package:mobx/mobx.dart';
 
@@ -10,7 +10,7 @@ class MenuController = MenuControllerBase with _$MenuController;
 
 abstract class MenuControllerBase with Store {
 
-  ImdbService _imdbService = MenuModule.to.get<ImdbService>();
+  final ImdbService _imdbService = Modular.get();
 
   @observable
   var globalState = GlobalKey<ScaffoldState>();
