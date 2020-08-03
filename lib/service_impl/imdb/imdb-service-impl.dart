@@ -1,9 +1,10 @@
-import 'package:app/service/imdb-service.dart';
+import 'package:app/service/imdb/imdb-service.dart';
+import 'package:app/service/imdb/secret-key.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-class ImdbServiceImpl implements ImdbService{
-  static var key = '9c207b40';
+class ImdbServiceImpl implements ImdbService {
+  static var key = SecretKey.IMDB_KEY;
   static String _url = 'http://www.omdbapi.com/?apikey=$key&';
 
   // REQUIRED

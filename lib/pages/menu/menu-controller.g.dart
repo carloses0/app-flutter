@@ -57,8 +57,8 @@ mixin _$MenuController on MenuControllerBase, Store {
   final _$listMovieAsyncAction = AsyncAction('MenuControllerBase.listMovie');
 
   @override
-  Future<Response> listMovie() {
-    return _$listMovieAsyncAction.run(() => super.listMovie());
+  Future<Response> listMovie(String search) {
+    return _$listMovieAsyncAction.run(() => super.listMovie(search));
   }
 
   @override

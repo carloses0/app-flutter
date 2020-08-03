@@ -1,4 +1,4 @@
-import 'package:app/service/imdb-service.dart';
+import 'package:app/service/imdb/imdb-service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart';
@@ -22,8 +22,8 @@ abstract class MenuControllerBase with Store {
   int index = 0;
 
   @action
-  Future<Response> listMovie() async {
-    await _imdbService.searchBy('game').then((onValue) {
+  Future<Response> listMovie(String search) async {
+    await _imdbService.searchBy(search).then((onValue) {
       print(onValue);
     }).catchError((onError) {
       print(onError);

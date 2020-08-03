@@ -1,6 +1,6 @@
 import 'package:app/pages/login/login-page.dart';
-import 'package:app/service_impl/auth-finger-impl.dart';
-import 'package:app/service_impl/firebase-auth-impl.dart';
+import 'package:app/service_impl/auth/auth-finger-impl.dart';
+import 'package:app/service_impl/auth/firebase-auth-impl.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'login-controller.dart';
