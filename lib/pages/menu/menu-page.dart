@@ -97,7 +97,7 @@ class _MenuPageState extends ModularState<MenuPage, MenuController> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
-        Text(msg, style: TextStyle(color: Colors.white, fontSize: 20),),
+        Text(msg, style: TextStyle(color: Colors.white, fontSize: 19),),
         Icon(Entypo.dot_single, color: Colors.white,)
       ],
     );
